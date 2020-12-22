@@ -32,14 +32,14 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 ## How to use:
-The user needs to enter a 10-digit phone number to the first input field. After hitting submit, a random 6-digit access code will be sent to the user's phone number (assumming that the the phone number is accurate).\ 
-The user needs to enter the sent access code and submit again to verify the phone number.\ 
-If the access code matches the one generated in the database, the process finishes successfully and the user can choose to reset from the beginning.\
-If the code does not match, the user can choose to either keep trying with different access code untill success or refresh the page to enter a new phone number.\
+* The user needs to enter a 10-digit phone number to the first input field. After hitting submit, a random 6-digit access code will be sent to the user's phone number (assumming that the the phone number is accurate).
+* The user needs to enter the sent access code and submit again to verify the phone number.
+* If the access code matches the one generated in the database, the process finishes successfully and the user can choose to reset from the beginning.
+* If the code does not match, the user can choose to either keep trying with different access code untill success or refresh the page to enter a new phone number.
 
 ## Technology Used:
-Front-End: React.\
-Back-End: Node, Express, Twilio, Firebase, Heroku.
+* Front-End: React.
+* Back-End: Node, Express, Twilio, Firebase, Heroku.
 
-The backend server is live and running on https://pacific-falls-13049.herokuapp.com.\
+The backend server is live and running on https://pacific-falls-13049.herokuapp.com.
 
