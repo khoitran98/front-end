@@ -53,7 +53,6 @@ const App = () => {
             }, 5000)
             return
         }
-        setDisabled(true) // Enable the access code input field and disable the phone number input field
         const user = {
             phoneNumber: phoneNum
         }
@@ -64,11 +63,14 @@ const App = () => {
                 setMessage(null)
             }, 5000)
             setCode('')
+            if (response.includes('Error'))
+                return
+            setDisabled(true) // Enable the access code input field and disable the phone number input field
         }
         ).catch(error => {
             console.log('error')
-            console.log(error.response.data)
-            setMessage(error.response.data)
+            console.log(error)
+            setMessage(error.toString())
             setTimeout(() => {
                 setMessage(null)
             }, 5000)
@@ -93,26 +95,26 @@ const App = () => {
         service.validateCode(user).then(response => 
         {
             console.log(response)
-            // access code is not correct
-            if (response.includes('not correct'))
-            {
-                setMessage(response)
-                setTimeout(() => {
-                    setMessage(null)
-                }, 5000)
-            }
             // access code is correct
-            else
+            if (response.includes('successful'))
             {
                 setPhoneNum('')
                 setCode('')
                 setDisabled(false)
                 setVerified(true)
             }
+            // access code is not correct or has expired
+            else
+            {
+                setMessage(response)
+                setTimeout(() => {
+                    setMessage(null)
+                }, 5000)
+            }
         }).catch(error => {
             console.log('error')
-            console.log(error.response.data)
-            setMessage(error.response.data)
+            console.log(error)
+            setMessage(error.toString())
             setTimeout(() => {
                 setMessage(null)
             }, 5000)
@@ -134,7 +136,7 @@ const App = () => {
     if (!isVerified)
         return (
             <div>
-                <h2>Please enter your 10-digit phone number and submit</h2>
+                <h2>Input Form</h2>
                 <Notification message={message} />
                 <Form createCode = {createCode} verify = {verify} phoneNum = {phoneNum} handlePhoneChange={handlePhoneChange} accessCode= {accessCode} handleCodeChange = {handleCodeChange} isDisabled = {isDisabled}/>
             </div>

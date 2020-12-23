@@ -33,9 +33,9 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 ## How to use:
 * The user needs to enter a 10-digit phone number to the first input field. After hitting submit, a random 6-digit access code will be sent to the user's phone number (assumming that the the phone number is accurate).
-* The user needs to enter the sent access code and submit again to verify the phone number.
+* The user needs to enter the sent access code and submit again to verify the phone number within 1 minute or the code will expire.
 * If the access code matches the one generated in the database, the process finishes successfully and the user can choose to reset from the beginning.
-* If the code does not match, the user can choose to either keep trying with different access code untill success or refresh the page to enter a new phone number.
+* If the code does not match, the user can choose to either keep trying with different access code untill success or refresh the page to enter a new phone number (if the user tries to enter the old phone number, he/she has to wait 1 minute for the old code to expire before trying to create a new access code).
 
 ## Technology Used:
 * Front-End: React.
